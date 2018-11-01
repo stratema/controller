@@ -82,3 +82,7 @@
   ([controller object-name]
    (let [mbs (ManagementFactory/getPlatformMBeanServer)]
      (.registerMBean mbs controller (ObjectName. object-name)))))
+
+(defn unregister-controller [object-name]
+  (let [mbs (ManagementFactory/getPlatformMBeanServer)]
+    (.unregisterMBean mbs (ObjectName. object-name))))
